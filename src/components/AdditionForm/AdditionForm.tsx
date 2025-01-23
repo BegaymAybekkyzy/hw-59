@@ -15,10 +15,9 @@ const AdditionForm: React.FC<Props> = ({onSubmitForm}) => {
     e.preventDefault();
     console.log('additionForm submitted');
     if (form.movieName.trim().length > 0) {
-      setForm({...form, id: String(new Date().toISOString())});
-      onSubmitForm(form);
+      onSubmitForm({...form, id: String(new Date().toISOString())});
     }
-    setForm({...form, movieName: ''});
+    setForm({...form, movieName: '', id: ''});
   };
 
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
