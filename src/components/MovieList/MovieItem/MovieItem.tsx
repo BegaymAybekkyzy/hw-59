@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react';
-import { IMovie } from '../../types';
+import { IMovie } from '../../../types';
 
 interface Props {
   movie: IMovie;
@@ -8,9 +8,6 @@ interface Props {
 }
 
 const MovieItem: React.FC<Props> = React.memo(({movie, onChange, onDelete}) => {
-
-  console.log('render item');
-
   const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const {value} = e.target;
     onChange({...movie, movieName: value});
