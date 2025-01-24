@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { IJokeResponse } from '../../types';
-import JokeList from '../../components/JokeList/JokeList.tsx';
-import ReceiveBtn from '../../components/ReceiveBtn/ReceiveBtn.tsx';
+import { useEffect, useState } from "react";
+import { IJokeResponse } from "../../types";
+import JokeList from "../../components/JokeList/JokeList.tsx";
+import ReceiveBtn from "../../components/ReceiveBtn/ReceiveBtn.tsx";
 
 const ChuckNorrisJokes = () => {
   const [jokes, setJokes] = useState<string[]>([]);
-  const URL = 'https://api.chucknorris.io/jokes/random';
+  const URL = "https://api.chucknorris.io/jokes/random";
   const limit = 5;
 
   const jokeRequest = async () => {
@@ -13,7 +13,7 @@ const ChuckNorrisJokes = () => {
     const URLArray: string[] = [];
 
     for (let i = 0; i < limit; i++) {
-       URLArray.push(URL);
+      URLArray.push(URL);
     }
 
     const jokeArray = await Promise.all(
@@ -24,7 +24,7 @@ const ChuckNorrisJokes = () => {
           return data.value;
         }
         throw new Error(response.statusText);
-      })
+      }),
     );
 
     setJokes(jokeArray);
@@ -44,9 +44,8 @@ const ChuckNorrisJokes = () => {
           </div>
         </div>
 
-          <ReceiveBtn jokeRequest = {jokeRequest} />
+        <ReceiveBtn jokeRequest={jokeRequest} />
       </div>
-
     </>
   );
 };

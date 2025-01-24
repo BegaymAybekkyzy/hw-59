@@ -1,14 +1,18 @@
-import React from 'react';
-import { IMovie } from '../../types';
-import MovieItem from './MovieItem/MovieItem.tsx';
+import React from "react";
+import { IMovie } from "../../types";
+import MovieItem from "./MovieItem/MovieItem.tsx";
 
 interface Props {
   movieList: IMovie[];
-  movieEditing: () => void;
-  movieDeletion: (movie: IMovie) => void,
+  movieEditing: (editedMovie: IMovie) => void;
+  movieDeletion: (movie: IMovie) => void;
 }
 
-const MovieList: React.FC<Props> = ({movieList, movieEditing, movieDeletion}) => {
+const MovieList: React.FC<Props> = ({
+  movieList,
+  movieEditing,
+  movieDeletion,
+}) => {
   return (
     <>
       {movieList.map((movie: IMovie) => (

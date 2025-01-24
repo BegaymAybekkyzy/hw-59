@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
-import { IMovie } from '../../types';
+import React, { useState } from "react";
+import { IMovie } from "../../types";
 
 interface Props {
   onSubmitForm: (movie: IMovie) => void;
 }
 
-const AdditionForm: React.FC<Props> = ({onSubmitForm}) => {
+const AdditionForm: React.FC<Props> = ({ onSubmitForm }) => {
   const [form, setForm] = useState<IMovie>({
-    movieName: '',
-    id: '',
+    movieName: "",
+    id: "",
   });
 
   const OnSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (form.movieName.trim().length > 0) {
-      onSubmitForm({...form, id: String(new Date().toISOString())});
+      onSubmitForm({ ...form, id: String(new Date().toISOString()) });
     }
-    setForm({...form, movieName: '', id: ''});
+    setForm({ ...form, movieName: "", id: "" });
   };
 
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const {value, name} = e.target;
-    setForm({...form, [name]: value});
+    const { value, name } = e.target;
+    setForm({ ...form, [name]: value });
   };
 
   return (
@@ -34,8 +34,11 @@ const AdditionForm: React.FC<Props> = ({onSubmitForm}) => {
             value={form.movieName}
             className="form-control"
             onChange={inputChangeHandler}
-            placeholder="Enter the name of the movie"/>
-          <button type="submit" className="btn btn-primary">Add</button>
+            placeholder="Enter the name of the movie"
+          />
+          <button type="submit" className="btn btn-primary">
+            Add
+          </button>
         </div>
       </form>
     </div>
